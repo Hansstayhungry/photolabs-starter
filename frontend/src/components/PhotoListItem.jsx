@@ -8,17 +8,12 @@ import { useState } from 'react';
 
 const PhotoListItem = (props) => {
   const { id, location, imageSource, username, name, profile } = props;
-  const [fav, setFav] = useState(false)
 
-  const handleFav = () => {
-    setFav((prevFav) => !prevFav);
-  };
-  
   return (
     <div className="photo-list__item">
       <img className="photo-list__image" src= {imageSource} id={id} />
       {/* add fav-button overlay */}
-      <PhotoFavButton onClick={handleFav} fav={fav} />
+      <PhotoFavButton />
 
       <div className="photo-list__user-location">{location.city}, {location.country}</div>
       <img className="photo-list__user-profile" src={profile} />
