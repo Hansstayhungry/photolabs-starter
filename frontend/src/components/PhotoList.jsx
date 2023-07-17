@@ -18,7 +18,8 @@ const PhotoList = (props) => {
           profile={photo.user.profile}
           
           fav={props.fav}
-          handleFavCount={props.handleFavCount}/>
+          handleFavCount={props.handleFavCount}
+          handleSelectedPhoto={props.handleSelectedPhoto}/>
       ))}
     </ul>    
   )
