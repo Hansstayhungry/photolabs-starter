@@ -4,11 +4,15 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-  const [fav, setFav] = useState(false)
+  const [fav, setFav] = useState()
 
-  const handleFav = useCallback(() => {
+  // use usecallback to prevent re-render if fav is not changed
+  // const handleFav = useCallback(() => {
+  //   setFav((prevFav) => !prevFav);
+  // },[fav]);
+  const handleFav = () => {
     setFav((prevFav) => !prevFav);
-  },[]);
+  }
   
 
   const fill = fav ? '#FF0000' : '#EEEEEE';
