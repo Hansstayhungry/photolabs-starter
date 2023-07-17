@@ -13,7 +13,7 @@ const PhotoListItem = (props) => {
     <div className="photo-list__item">
       <img className="photo-list__image" src= {imageSource} id={id} />
       {/* add fav-button overlay */}
-      <PhotoFavButton />
+      <PhotoFavButton fav={props.fav} handleFavCount={props.handleFavCount} id={props.id}/>
 
       <div className='photo-list__user-details'>
         <img className="photo-list__user-profile" src={profile} />

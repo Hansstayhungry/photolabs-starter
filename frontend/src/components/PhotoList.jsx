@@ -15,7 +15,10 @@ const PhotoList = (props) => {
           imageSource={photo.urls.regular}
           username={photo.user.username}
           name={photo.user.name}
-          profile={photo.user.profile} />
+          profile={photo.user.profile}
+          
+          fav={props.fav}
+          handleFavCount={props.handleFavCount}/>
       ))}
     </ul>    
   )
