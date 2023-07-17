@@ -10,18 +10,27 @@ import { useState } from 'react';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState();
+  const [isOpened, setIsOpened] = useState();
 
 
   const handleSelectedPhoto = (photo) => {
     setSelectedPhoto(photo);
+    setIsOpened(true);
     console.log("photo clicked")
+  }
+
+  const handleIsOpened = () => {
+    setIsOpened(false);
+    setSelectedPhoto("");
+    console.log("close button clicked");
   }
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} handleSelectedPhoto={handleSelectedPhoto}/>
+      <HomeRoute photos={photos} topics={topics} 
+        handleSelectedPhoto={handleSelectedPhoto} />
       {selectedPhoto && (
-        <PhotoDetailsModal selectedPhoto={selectedPhoto} />
+        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened}/>
       )}
     </div>    
   )
