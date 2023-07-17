@@ -15,10 +15,15 @@ const PhotoListItem = (props) => {
       {/* add fav-button overlay */}
       <PhotoFavButton />
 
-      <div className="photo-list__user-location">{location.city}, {location.country}</div>
-      <img className="photo-list__user-profile" src={profile} />
-      <div className='photo-list__user-info photo-list__user-details'>{name}</div> 
-      <div className='photo-list__user-info photo-list__user-details'>{username}</div> 
+      <div className='photo-list__user-details'>
+        <img className="photo-list__user-profile" src={profile} />
+
+        <div className='photo-list__user-info'>
+          <div>{name}</div>
+
+          <div className='photo-list__user-location'>{location.city}, {location.country}</div>
+        </div>
+      </div>
     </div>
   );
 };
