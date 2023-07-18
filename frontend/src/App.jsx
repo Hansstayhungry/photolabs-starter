@@ -32,7 +32,7 @@ const App = () => {
       <HomeRoute photos={photos} topics={topics} 
         handleSelectedPhoto={handleSelectedPhoto} />
       {selectedPhoto && (
-        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened}/>
+        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto}/>
       )}
     </div>    
   )
