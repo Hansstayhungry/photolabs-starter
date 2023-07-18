@@ -1,31 +1,16 @@
 import React from 'react';
+import { useEffect } from 'react';
 
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import { useState } from 'react';
+import useApplication from './hooks/useApplication';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState();
-  const [isOpened, setIsOpened] = useState();
-
-// destructure similar photo
-
-  const handleSelectedPhoto = (photo) => {
-    setSelectedPhoto(photo);
-    setIsOpened(true);
-    console.log(`photo ${photo.id} clicked`)
-    console.log(`suggestion photos are ${photo.similarPhotos}`)
-  }
-
-  const handleIsOpened = () => {
-    setIsOpened(false);
-    setSelectedPhoto("");
-    console.log("close button clicked");
-  }
+  const { handleSelectedPhoto, handleIsOpened, selectedPhoto } = useApplication();
 
   return (
     <div className="App">

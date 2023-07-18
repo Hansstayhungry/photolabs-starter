@@ -4,6 +4,7 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
+  console.log("photolist props", props)
   return (
     <ul className="photo-list">
       {/* Insert React */}
@@ -21,7 +22,8 @@ const PhotoList = (props) => {
           
           fav={props.fav}
           handleFavCount={props.handleFavCount}
-          handleSelectedPhoto={props.handleSelectedPhoto}/>
+          handleSelectedPhoto={props.handleSelectedPhoto?props.handleSelectedPhoto:()=>{}}/>
+          // handleSelectedPhoto={props.handleSelectedPhoto}/>
       ))}
     </ul>    
   )

@@ -7,6 +7,7 @@ import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
   const [fav, setFav] = useState([]);
+  console.log("photo debug", props.photos)
 
   const handleFavCount = (id) => {
     setFav((prevFav) => {

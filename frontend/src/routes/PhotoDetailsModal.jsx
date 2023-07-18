@@ -3,6 +3,7 @@ import PhotoList from '../components/PhotoList';
 import PhotoListItem from '../components/PhotoListItem';
 import PhotoFavButton from '../components/PhotoFavButton';
 
+
 import '../styles/PhotoDetailsModal.scss'
 
 
@@ -10,9 +11,9 @@ export const PhotoDetailsModal = (props) => {
   const { handleIsOpened } = props
   const { fav, handleFavCount, handleSelectedPhoto,
      fullImageSource, id, location, name, profile, username, similarPhotos } = props.selectedPhoto;
-
+    console.log("similar photo debug", similarPhotos)
     // convert similar_photo object to array
-  const similarPhotoArray = Object.values(similarPhotos)
+  const similarPhotoArray = Object.values(similarPhotos?similarPhotos:{})
       // similarPhotoArray.map((photo) => (
       //     <img 
       //     key={photo.id} 
@@ -35,9 +36,12 @@ export const PhotoDetailsModal = (props) => {
           </defs>
         </svg>
       </button>
-      <div className='photo-details-modal__images'>
-        <img className='photo-details-modal__image' src={fullImageSource} />
-        <PhotoFavButton className='photo-details-modal__fav-button' fav={fav} handleFavCount={handleFavCount} id={id}/>
+        <div className='photo-details-modal__image-container'>
+          <img className='photo-details-modal__image' src={fullImageSource} />
+          <div className='photo-details-modal__fav-button'>
+            <PhotoFavButton fav={fav} handleFavCount={handleFavCount} id={id}/>
+          </div>
+        </div>
         <div className='photo-details-modal__profile-container'>
           <img className="photo-details-modal__profile" src={profile} />
           <div className='photo-details-modal__photographer-details'>
@@ -46,11 +50,11 @@ export const PhotoDetailsModal = (props) => {
           </div>
 
         </div>
-      </div>
 
       <h2>Similar Photos</h2>
       <div className='.photo-details-modal__top-bar'>
-        <PhotoList photos={similarPhotoArray}/>       
+        <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} fav={fav}/>
+        {/* <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} handleSelectedPhoto={handleSelectedPhoto} fav={fav}/> */}
       </div>
         {/* <PhotoFavButton fav={props.fav} handleFavCount={props.handleFavCount} id={props.id}/>        
       </div>
