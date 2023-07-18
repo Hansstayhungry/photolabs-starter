@@ -16,7 +16,7 @@ const App = () => {
   const handleSelectedPhoto = (photo) => {
     setSelectedPhoto(photo);
     setIsOpened(true);
-    console.log("photo clicked")
+    console.log(`photo ${photo} clicked`)
   }
 
   const handleIsOpened = () => {

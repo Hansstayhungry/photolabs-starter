@@ -11,7 +11,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
-      <img className="photo-list__image" src= {imageSource} id={id} onClick={handleSelectedPhoto} />
+      <img className="photo-list__image" src= {imageSource} id={id} onClick={()=> handleSelectedPhoto(id)} />
       {/* add fav-button overlay */}
       <PhotoFavButton fav={props.fav} handleFavCount={props.handleFavCount} id={props.id}/>
 
