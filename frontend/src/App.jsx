@@ -12,11 +12,13 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState();
   const [isOpened, setIsOpened] = useState();
 
+// destructure similar photo
 
   const handleSelectedPhoto = (photo) => {
     setSelectedPhoto(photo);
     setIsOpened(true);
-    console.log(`photo ${photo} clicked`)
+    console.log(`photo ${photo.id} clicked`)
+    console.log(`suggestion photos are ${photo.similarPhotos}`)
   }
 
   const handleIsOpened = () => {

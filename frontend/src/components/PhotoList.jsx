@@ -16,6 +16,8 @@ const PhotoList = (props) => {
           username={photo.user.username}
           name={photo.user.name}
           profile={photo.user.profile}
+          similarPhotos={photo.similar_photos}
+          fullImageSource={photo.urls.full}
           
           fav={props.fav}
           handleFavCount={props.handleFavCount}
