@@ -34,14 +34,13 @@ const App = () => {
       const topicResponse = await fetch(GET_TOPICS);
       const topicData = await topicResponse.json();
       setTopics(topicData);
-      console.log("topic", topicData);
+      console.log("topic topicdata", topicData);
     }
 
     async function fetchPhotoByTopicData() {
       const photoByTopicDataResponse = await fetch(GET_PHOTOS_BY_TOPICS);
       const photoByTopicDataData = await photoByTopicDataResponse.json();
-      setSelectedTopic(photoByTopicDataData);
-      console.log("topic", topicData);
+      setPhotos(photoByTopicDataData);
     }
     fetchphotoData();
     fetchTopicData();
@@ -55,7 +54,7 @@ const App = () => {
   const handleSelectedTopic = (topicId) => {
     setSelectedTopic(topicId);
   }
-
+  
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics}
