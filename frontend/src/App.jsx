@@ -27,14 +27,14 @@ const App = () => {
       const photoResponse = await fetch(GET_PHOTOS);
       const photoData = await photoResponse.json();
       setPhotos(photoData);
-      console.log("photo", photoData);
+      // console.log("photo", photoData);
     }
 
     async function fetchTopicData() {
       const topicResponse = await fetch(GET_TOPICS);
       const topicData = await topicResponse.json();
       setTopics(topicData);
-      console.log("topic topicdata", topicData);
+      // console.log("topic topicdata", topicData);
     }
 
     async function fetchPhotoByTopicData() {

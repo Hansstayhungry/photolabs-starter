@@ -59,12 +59,12 @@ const useApplication = () => {
   const handleSelectedPhoto = (photo) => {
     dispatch({ type: 'SELECT_PHOTO', payload: photo });
     console.log(`photo ${photo.id} clicked`);
-    console.log(`suggestion photos are ${photo.similarPhotos}`);
+    // console.log(`suggestion photos are ${photo.similarPhotos}`);
   };
 
   const handleIsOpened = () => {
     dispatch({ type: 'CLOSE_MODAL' });
-    console.log('close button clicked');
+    // console.log('close button clicked');
   };
 
   return {

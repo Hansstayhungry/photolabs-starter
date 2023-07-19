@@ -11,7 +11,7 @@ export const PhotoDetailsModal = (props) => {
   const { handleIsOpened } = props
   const { fav, handleFavCount, handleSelectedPhoto,
      fullImageSource, id, location, name, profile, username, similarPhotos } = props.selectedPhoto;
-    console.log("similar photo debug", similarPhotos)
+    // console.log("similar photo debug", similarPhotos)
     // convert similar_photo object to array
   const similarPhotoArray = Object.values(similarPhotos?similarPhotos:{})
       // similarPhotoArray.map((photo) => (

@@ -7,12 +7,12 @@ import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
   const [fav, setFav] = useState([]);
-  console.log("homeroute props", props);
+  // console.log("homeroute props", props);
 
   const handleFavCount = (id) => {
     setFav((prevFav) => {
-      console.log("favourite images length", fav.length)
-      console.log("favourite picture id", id)
+      // console.log("favourite images length", fav.length)
+      // console.log("favourite picture id", id)
       if (prevFav.includes(id)) {
         return prevFav.filter((favId) => favId !==id)
       } else {

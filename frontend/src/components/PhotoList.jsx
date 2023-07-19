@@ -4,7 +4,7 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-  console.log("photolist props", props);
+  // console.log("photolist props", props);
   return (
     <ul className="photo-list">
       {/* Insert React */}
