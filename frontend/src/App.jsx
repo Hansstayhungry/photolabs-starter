@@ -15,29 +15,51 @@ const App = () => {
 
   const [photos, setPhotos] = useState([]);
   const [topics, setTopics] = useState([]);
+  const [selectedTopic, setSelectedTopic] = useState("");
+
+  const GET_PHOTOS = "/api/photos";
+  const GET_TOPICS = "/api/topics";
+
+  const GET_PHOTOS_BY_TOPICS = `/api/topics/photos/${selectedTopic}`;
 
   useEffect(() => {
     async function fetchphotoData() {
-      const photoResponse = await fetch("/api/photos");
+      const photoResponse = await fetch(GET_PHOTOS);
       const photoData = await photoResponse.json();
       setPhotos(photoData);
       console.log("photo", photoData);
     }
 
     async function fetchTopicData() {
-      const topicResponse = await fetch("/api/topics");
+      const topicResponse = await fetch(GET_TOPICS);
       const topicData = await topicResponse.json();
       setTopics(topicData);
       console.log("topic", topicData);
     }
+
+    async function fetchPhotoByTopicData() {
+      const photoByTopicDataResponse = await fetch(GET_PHOTOS_BY_TOPICS);
+      const photoByTopicDataData = await photoByTopicDataResponse.json();
+      setSelectedTopic(photoByTopicDataData);
+      console.log("topic", topicData);
+    }
     fetchphotoData();
     fetchTopicData();
-  }, [])
+
+    if (selectedTopic) {
+      fetchPhotoByTopicData(selectedTopic)    
+    };
+
+  }, [selectedTopic])
+
+  const handleSelectedTopic = (topicId) => {
+    setSelectedTopic(topicId);
+  }
 
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics}
-        handleSelectedPhoto={handleSelectedPhoto} />
+        handleSelectedPhoto={handleSelectedPhoto} handleSelectedTopic={handleSelectedTopic} />
       {selectedPhoto && (
         <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto}/>
       )}

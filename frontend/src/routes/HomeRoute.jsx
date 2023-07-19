@@ -7,7 +7,6 @@ import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
   const [fav, setFav] = useState([]);
-  console.log("photo debug", props.photos)
 
   const handleFavCount = (id) => {
     setFav((prevFav) => {
@@ -26,7 +25,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation topics ={props.topics} isFavPhotoExist={isFavPhotoExist}/>
+      <TopNavigation topics ={props.topics} isFavPhotoExist={isFavPhotoExist} handleSelectedTopic={props.handleSelectedTopic}/>
       <PhotoList photos={props.photos} fav={fav} handleFavCount={handleFavCount} handleSelectedPhoto={props.handleSelectedPhoto}/>
     </div>    
   )
