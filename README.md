@@ -22,3 +22,11 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Screenshot
+
+![main](https://github.com/Hansstayhungry/photolabs-starter/blob/main/docs/photoLabs-main.png)
+
+![detail](https://github.com/Hansstayhungry/photolabs-starter/blob/main/docs/photoLabs-detail.png)
+
+![gif](https://github.com/Hansstayhungry/photolabs-starter/blob/main/docs/photoLabs-gif.gif)
