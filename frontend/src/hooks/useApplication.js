@@ -20,7 +20,7 @@ import { useState } from "react";
 //     console.log("close button clicked");
 //   }
 
-  
+
 
 //   return { handleSelectedPhoto, handleIsOpened, selectedPhoto }
 // }

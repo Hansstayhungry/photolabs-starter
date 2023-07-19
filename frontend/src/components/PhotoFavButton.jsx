@@ -7,14 +7,14 @@
 //   const { handleFavCount } = props;
 //   const [fav, setFav] = useState()
 
-  // use usecallback to prevent re-render if fav is not changed
-  // const handleFav = useCallback(() => {
-  //   setFav((prevFav) => !prevFav);
-  // },[fav]);
+// use usecallback to prevent re-render if fav is not changed
+// const handleFav = useCallback(() => {
+//   setFav((prevFav) => !prevFav);
+// },[fav]);
 //   const handleFav = () => {
 //     setFav((prevFav) => !prevFav);
 //   }
-  
+
 //   const handleOnClick = () => {
 //     handleFavCount(props.id);
 //     handleFav();

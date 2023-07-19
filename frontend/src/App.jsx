@@ -46,26 +46,26 @@ const App = () => {
     fetchTopicData();
 
     if (selectedTopic) {
-      fetchPhotoByTopicData(selectedTopic)    
+      fetchPhotoByTopicData(selectedTopic);
     };
 
-  }, [selectedTopic])
+  }, [selectedTopic]);
 
   const handleSelectedTopic = (topicId) => {
     setSelectedTopic(topicId);
-  }
-  
+  };
+
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics}
         handleSelectedPhoto={handleSelectedPhoto} handleSelectedTopic={handleSelectedTopic} />
       {selectedPhoto && (
-        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto}/>
+        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto} />
       )}
-    </div>    
-  )
+    </div>
+  );
 
-}
+};
 
 
-export default App
+export default App;
