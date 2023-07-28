@@ -8,9 +8,10 @@ import '../styles/PhotoDetailsModal.scss';
 
 
 export const PhotoDetailsModal = (props) => {
-  const { handleIsOpened } = props;
-  const { fav, handleFavCount, handleSelectedPhoto,
+  const { handleIsOpened, likedPhotoIds, handleFavCount } = props;
+  const { fav, handleSelectedPhoto,
     fullImageSource, id, location, name, profile, username, similarPhotos } = props.selectedPhoto;
+
   // console.log("similar photo debug", similarPhotos)
   // convert similar_photo object to array
   const similarPhotoArray = Object.values(similarPhotos ? similarPhotos : {});
@@ -19,7 +20,7 @@ export const PhotoDetailsModal = (props) => {
   //     key={photo.id} 
   //     src={photo.urls.regular} />        
   // ))
-
+    
 
   return (
     <div className='photo-details-modal'>
@@ -39,7 +40,7 @@ export const PhotoDetailsModal = (props) => {
       <div className='photo-details-modal__image-container'>
         <img className='photo-details-modal__image' src={fullImageSource} />
         <div className='photo-details-modal__fav-button'>
-          <PhotoFavButton fav={fav} handleFavCount={handleFavCount} id={id} />
+          <PhotoFavButton handleFavCount={handleFavCount} id={id} likedPhotoIds={likedPhotoIds} />
         </div>
       </div>
       <div className='photo-details-modal__profile-container'>
@@ -53,7 +54,7 @@ export const PhotoDetailsModal = (props) => {
 
       <h2>Similar Photos</h2>
       <div className='.photo-details-modal__top-bar'>
-        <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} fav={fav} />
+        <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} likedPhotoIds={likedPhotoIds} />
         {/* <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} handleSelectedPhoto={handleSelectedPhoto} fav={fav}/> */}
       </div>
       {/* <PhotoFavButton fav={props.fav} handleFavCount={props.handleFavCount} id={props.id}/>        

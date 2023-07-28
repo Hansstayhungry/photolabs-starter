@@ -20,7 +20,7 @@ const PhotoList = (props) => {
           similarPhotos={photo.similar_photos}
           fullImageSource={photo.urls.full}
 
-          fav={props.fav}
+          likedPhotoIds={props.likedPhotoIds}
           handleFavCount={props.handleFavCount}
           handleSelectedPhoto={props.handleSelectedPhoto ? props.handleSelectedPhoto : () => { }} />
         // handleSelectedPhoto={props.handleSelectedPhoto}/>

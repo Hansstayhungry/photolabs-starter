@@ -6,28 +6,28 @@ import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 const HomeRoute = (props) => {
-  const [fav, setFav] = useState([]);
+  // const [fav, setFav] = useState([]);
   // console.log("homeroute props", props);
 
-  const handleFavCount = (id) => {
-    setFav((prevFav) => {
-      // console.log("favourite images length", fav.length)
-      // console.log("favourite picture id", id)
-      if (prevFav.includes(id)) {
-        return prevFav.filter((favId) => favId !== id);
-      } else {
-        return [...prevFav, id];
-      }
-    });
+  // const handleFavCount = (id) => {
+  //   setFav((prevFav) => {
+  //     // console.log("favourite images length", fav.length)
+  //     // console.log("favourite picture id", id)
+  //     if (prevFav.includes(id)) {
+  //       return prevFav.filter((favId) => favId !== id);
+  //     } else {
+  //       return [...prevFav, id];
+  //     }
+  //   });
 
-  };
+  // };
 
-  const isFavPhotoExist = fav.length > 0 ? true : false;
+  const isFavPhotoExist = props.fav.length > 0 ? true : false;
 
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} isFavPhotoExist={isFavPhotoExist} handleSelectedTopic={props.handleSelectedTopic} />
-      <PhotoList photos={props.photos} fav={fav} handleFavCount={handleFavCount} handleSelectedPhoto={props.handleSelectedPhoto} />
+      <PhotoList  likedPhotoIds = {props.fav} photos={props.photos} handleFavCount={props.handleFavCount} handleSelectedPhoto={props.handleSelectedPhoto} />
     </div>
   );
 

@@ -56,6 +56,22 @@ const reducer = (state, action) => {
 const useApplication = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const [fav, setFav] = useState([]);
+  // console.log("homeroute props", props);
+
+  const handleFavCount = (id) => {
+    setFav((prevFav) => {
+      // console.log("favourite images length", fav.length)
+      // console.log("favourite picture id", id)
+      if (prevFav.includes(id)) {
+        return prevFav.filter((favId) => favId !== id);
+      } else {
+        return [...prevFav, id];
+      }
+    });
+
+  };
+
   const handleSelectedPhoto = (photo) => {
     dispatch({ type: 'SELECT_PHOTO', payload: photo });
     console.log(`photo ${photo.id} clicked`);
@@ -67,7 +83,11 @@ const useApplication = () => {
     // console.log('close button clicked');
   };
 
+  
+
   return {
+    fav,
+    handleFavCount,
     handleSelectedPhoto,
     handleIsOpened,
     selectedPhoto: state.selectedPhoto

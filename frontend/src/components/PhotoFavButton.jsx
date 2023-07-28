@@ -55,19 +55,16 @@ function reducer(state, action) {
 }
 
 function PhotoFavButton(props) {
-  const { handleFavCount } = props;
+  const { handleFavCount, likedPhotoIds, id } = props;
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const isLike = likedPhotoIds.includes(id)
 
-  const handleOnClick = () => {
-    handleFavCount(props.id);
-    dispatch({ type: 'TOGGLE_FAV' });
-  };
+  // const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fill = state.fav ? '#FF0000' : '#EEEEEE';
+  const fill = isLike ? '#FF0000' : '#EEEEEE';
 
   return (
-    <div className="photo-list__fav-icon" onClick={handleOnClick}>
+    <div className="photo-list__fav-icon" onClick={()=> handleFavCount(props.id)}>
       <div className="photo-list__fav-icon-svg">
         {/* Insert React */}
         <FavIcon fill={fill} />

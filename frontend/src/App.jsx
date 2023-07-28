@@ -11,7 +11,8 @@ import { useState } from 'react';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const { handleSelectedPhoto, handleIsOpened, selectedPhoto } = useApplication();
+  const { handleSelectedPhoto, handleIsOpened, selectedPhoto, fav,
+    handleFavCount } = useApplication();
 
   const [photos, setPhotos] = useState([]);
   const [topics, setTopics] = useState([]);
@@ -58,9 +59,11 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics}
-        handleSelectedPhoto={handleSelectedPhoto} handleSelectedTopic={handleSelectedTopic} />
+        handleSelectedPhoto={handleSelectedPhoto} handleSelectedTopic={handleSelectedTopic}
+        handleFavCount={handleFavCount} fav={fav} />
       {selectedPhoto && (
-        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto} />
+        <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto}
+        handleFavCount={handleFavCount} fav={fav} likedPhotoIds={fav}/>
       )}
     </div>
   );
