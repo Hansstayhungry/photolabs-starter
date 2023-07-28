@@ -9,7 +9,7 @@ import '../styles/PhotoDetailsModal.scss';
 
 export const PhotoDetailsModal = (props) => {
   const { handleIsOpened, likedPhotoIds, handleFavCount } = props;
-  const { fav, handleSelectedPhoto,
+  const { handleSelectedPhoto,
     fullImageSource, id, location, name, profile, username, similarPhotos } = props.selectedPhoto;
 
   // console.log("similar photo debug", similarPhotos)
@@ -54,20 +54,8 @@ export const PhotoDetailsModal = (props) => {
 
       <h2>Similar Photos</h2>
       <div className='.photo-details-modal__top-bar'>
-        <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} likedPhotoIds={likedPhotoIds} />
-        {/* <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} handleSelectedPhoto={handleSelectedPhoto} fav={fav}/> */}
+        <PhotoList photos={similarPhotoArray} handleFavCount={handleFavCount} likedPhotoIds={likedPhotoIds} handleSelectedPhoto={null}/>
       </div>
-      {/* <PhotoFavButton fav={props.fav} handleFavCount={props.handleFavCount} id={props.id}/>        
-      </div>
-      <div className='photo-details-modal__images'>
-
-        <h2 className='photo-details-modal__header'>Similar Photos </h2>
-        <ul className='photo-details-modal__top-bar'>  */}
-      {/* <PhotoList /> */}
-      {/* </ul>       
-      </div> */}
-
-
     </div>
   );
 };

@@ -22,12 +22,10 @@ const HomeRoute = (props) => {
 
   // };
 
-  const isFavPhotoExist = props.fav.length > 0 ? true : false;
-
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} isFavPhotoExist={isFavPhotoExist} handleSelectedTopic={props.handleSelectedTopic} />
-      <PhotoList  likedPhotoIds = {props.fav} photos={props.photos} handleFavCount={props.handleFavCount} handleSelectedPhoto={props.handleSelectedPhoto} />
+      <TopNavigation topics={props.topics} likedPhotoIds={props.likedPhotoIds} handleSelectedTopic={props.handleSelectedTopic} />
+      <PhotoList  likedPhotoIds = {props.likedPhotoIds} photos={props.photos} handleFavCount={props.handleFavCount} handleSelectedPhoto={props.handleSelectedPhoto} />
     </div>
   );
 

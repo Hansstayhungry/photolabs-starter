@@ -56,7 +56,7 @@ const reducer = (state, action) => {
 const useApplication = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const [fav, setFav] = useState([]);
+  const [likedPhotoIds, setFav] = useState([]);
   // console.log("homeroute props", props);
 
   const handleFavCount = (id) => {
@@ -86,7 +86,7 @@ const useApplication = () => {
   
 
   return {
-    fav,
+    likedPhotoIds,
     handleFavCount,
     handleSelectedPhoto,
     handleIsOpened,

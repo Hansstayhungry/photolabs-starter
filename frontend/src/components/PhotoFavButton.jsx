@@ -41,18 +41,18 @@ import React, { useReducer } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-const initialState = {
-  fav: false,
-};
+// const initialState = {
+//   likedPhotoIds: false,
+// };
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'TOGGLE_FAV':
-      return { ...state, fav: !state.fav };
-    default:
-      throw new Error('Unsupported action type');
-  }
-}
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case 'TOGGLE_FAV':
+//       return { ...state, likedPhotoIds: !state.likedPhotoIds };
+//     default:
+//       throw new Error('Unsupported action type');
+//   }
+// }
 
 function PhotoFavButton(props) {
   const { handleFavCount, likedPhotoIds, id } = props;

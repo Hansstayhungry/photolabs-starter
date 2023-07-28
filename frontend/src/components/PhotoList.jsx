@@ -23,7 +23,6 @@ const PhotoList = (props) => {
           likedPhotoIds={props.likedPhotoIds}
           handleFavCount={props.handleFavCount}
           handleSelectedPhoto={props.handleSelectedPhoto ? props.handleSelectedPhoto : () => { }} />
-        // handleSelectedPhoto={props.handleSelectedPhoto}/>
       ))}
     </ul>
   );
