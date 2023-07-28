@@ -15,12 +15,6 @@ export const PhotoDetailsModal = (props) => {
   // console.log("similar photo debug", similarPhotos)
   // convert similar_photo object to array
   const similarPhotoArray = Object.values(similarPhotos ? similarPhotos : {});
-  // similarPhotoArray.map((photo) => (
-  //     <img 
-  //     key={photo.id} 
-  //     src={photo.urls.regular} />        
-  // ))
-    
 
   return (
     <div className='photo-details-modal'>
