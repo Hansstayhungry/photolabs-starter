@@ -18,10 +18,17 @@ const App = () => {
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
 
+  //dark mode
+  const [darkMode, setDarkMode] = useState(false);
+
   const GET_PHOTOS = "/api/photos";
   const GET_TOPICS = "/api/topics";
 
   const GET_PHOTOS_BY_TOPICS = `/api/topics/photos/${selectedTopic}`;
+
+  const toggleDarkMode = () => {
+    setDarkMode(prevDarkMode => !prevDarkMode);
+  }
 
   useEffect(() => {
     async function fetchphotoData() {
@@ -57,10 +64,10 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`} data-dark-mode={darkMode}>
       <HomeRoute photos={photos} topics={topics}
         handleSelectedPhoto={handleSelectedPhoto} handleSelectedTopic={handleSelectedTopic}
-        handleFavCount={handleFavCount} likedPhotoIds={likedPhotoIds} />
+        handleFavCount={handleFavCount} likedPhotoIds={likedPhotoIds} toggleDarkMode={toggleDarkMode}/>
       {selectedPhoto && (
         <PhotoDetailsModal selectedPhoto={selectedPhoto} handleIsOpened={handleIsOpened} handleSelectedPhoto={handleSelectedPhoto}
         handleFavCount={handleFavCount} likedPhotoIds={likedPhotoIds}/>
